@@ -32,3 +32,46 @@ def save_uploaded_file(uploaded_file):
     uploaded_file.save(file_path)
 
     return file_path
+
+def save_encrypted_file(encrypted_data, filename):
+    """
+    Saves encrypted binary data into the output folder.
+
+    Parameters:
+        encrypted_data (bytes): Encrypted file data.
+        filename (str): Name of the encrypted file.
+
+    Returns:
+        Path: Full path of the saved encrypted file.
+    """
+
+    file_path = OUTPUT_FOLDER / filename
+
+    with open(file_path, "wb") as file:
+        file.write(encrypted_data)
+
+    return file_path
+
+def save_share_files(shares):
+    """
+    Saves Shamir Secret Sharing key shares into text files.
+
+    Parameters:
+        shares (list): List of share strings.
+
+    Returns:
+        list: Paths to all saved share files.
+    """
+
+    share_paths = []
+
+    for index, share in enumerate(shares, start=1):
+        filename = f"share_{index}.txt"
+        file_path = OUTPUT_FOLDER / filename
+
+        with open(file_path, "w", encoding="utf-8") as file:
+            file.write(str(share))
+
+        share_paths.append(file_path)
+
+    return share_paths
