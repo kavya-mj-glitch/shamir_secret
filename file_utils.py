@@ -75,3 +75,37 @@ def save_share_files(shares):
         share_paths.append(file_path)
 
     return share_paths
+def delete_file(file_path):
+    """
+    Deletes a file if it exists.
+
+    Parameters:
+        file_path (Path or str): Path to the file.
+
+    Returns:
+        bool: True if deleted successfully, False otherwise.
+    """
+
+    try:
+        file_path = Path(file_path)
+
+        if file_path.exists():
+            file_path.unlink()
+            return True
+
+        return False
+
+    except Exception as e:
+        print(f"Error deleting file: {e}")
+        return False
+
+def cleanup_temp_files(file_paths):
+    """
+    Deletes multiple temporary files.
+
+    Parameters:
+        file_paths (list): List of file paths.
+    """
+
+    for file_path in file_paths:
+        delete_file(file_path)
