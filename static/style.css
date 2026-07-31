@@ -275,7 +275,15 @@ input, select, textarea { font-family: inherit; }
     background-image: url('grid.svg');
     background-repeat: repeat;
     background-position: center top;
+}
 
+.bg-grid::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Soften the fade so the grid is faintly visible everywhere */
+    background: radial-gradient(ellipse 80% 80% at 50% 0%, transparent, rgba(0,0,0,0.85) 100%);
+}
 
 /* ── Page Wrapper ───────────────────────────────────────────── */
 .page-wrapper {
