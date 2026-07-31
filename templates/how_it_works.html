@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}How It Works{% endblock %}
+{% block meta_desc %}Learn how ShardSafe encrypts files and splits keys using Shamir Secret Sharing in a step-by-step workflow.{% endblock %}
+
+{% block content %}
+<main>
+    <section class="page-header">
+        <div class="container">
+            <div class="section-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Workflow
+            </div>
+            <h1>How It Works</h1>
+            <p>From file upload to secure key recovery, here is the complete ShardSafe encryption and decryption workflow.</p>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+        <div class="container">
+            <div class="steps-container">
+                <div class="steps-line"></div>
+
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Upload File</h3>
+                        <p>Drag and drop any file up to 50 MB into the encrypt page. ShardSafe accepts all file types.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Generate Encryption Key</h3>
+                        <p>A cryptographically secure 256-bit AES key is generated using a random number generator.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>AES-256-GCM Encryption</h3>
+                        <p>Your file is encrypted using AES-256-GCM, which provides both confidentiality and integrity verification. A random 12-byte nonce is generated for each encryption.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Split Key with Shamir Secret Sharing</h3>
+                        <p>The AES key is converted to a large integer and split into N shares using polynomial interpolation over a prime field (2<sup>521</sup> - 1).</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Download Encrypted Package</h3>
+                        <p>The encrypted file (.enc) and all key share files (share_1.txt, share_2.txt, ...) are bundled into a single ZIP download.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3>Recover Key with Threshold</h3>
+                        <p>To decrypt, provide at least K of the N shares. The original AES key is mathematically reconstructed using Lagrange interpolation.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h3>Decrypt File</h3>
+                        <p>The reconstructed key and stored nonce are used to decrypt the file via AES-256-GCM. The integrity tag is verified to ensure the data has not been tampered with.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -18,7 +18,27 @@ app.config['MAX_CONTENT_LENGTH'] = 50 * 1024 * 1024  # 50MB
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('home.html')
+
+@app.route('/encrypt-page')
+def encrypt_page():
+    return render_template('encrypt.html')
+
+@app.route('/decrypt-page')
+def decrypt_page():
+    return render_template('decrypt.html')
+
+@app.route('/features')
+def features():
+    return render_template('features.html')
+
+@app.route('/how-it-works')
+def how_it_works():
+    return render_template('how_it_works.html')
+
+@app.route('/faq')
+def faq():
+    return render_template('faq.html')
 
 @app.route('/api/status', methods=['GET'])
 def status():

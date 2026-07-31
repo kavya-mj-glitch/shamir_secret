@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ{% endblock %}
+{% block meta_desc %}Frequently asked questions about ShardSafe's encryption, Shamir Secret Sharing, and file security.{% endblock %}
+
+{% block content %}
+<main>
+    <section class="page-header">
+        <div class="container">
+            <div class="section-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Support
+            </div>
+            <h1>Frequently Asked Questions</h1>
+            <p>Common questions about ShardSafe, encryption, and key management.</p>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+        <div class="container">
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        What is Shamir Secret Sharing?
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Shamir's Secret Sharing is a cryptographic algorithm created by Adi Shamir. It divides a secret (in our case, an AES encryption key) into multiple parts called "shares." You configure a threshold K out of N total shares. Any K shares can reconstruct the original secret, but fewer than K shares reveal absolutely nothing about it.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        How secure is AES-256-GCM?
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            AES-256-GCM is considered military-grade encryption. It uses a 256-bit key, making brute-force attacks computationally infeasible. The GCM (Galois/Counter Mode) provides authenticated encryption, meaning it not only encrypts the data but also verifies its integrity during decryption. If anyone tampers with the encrypted file, decryption will fail.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        What happens if I lose some key shares?
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            That depends on your threshold configuration. If you set N=5 and K=3, you can lose up to 2 shares and still decrypt your file. However, if you lose more shares than (N - K), recovery becomes impossible. We recommend distributing shares to multiple secure locations.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        Is my file uploaded to a server?
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes, the file is temporarily uploaded to the server for encryption/decryption. However, ShardSafe uses a zero-knowledge architecture: all operations happen in-memory using temporary buffers. Your file, encryption key, and plaintext data are never written to disk and are immediately discarded after processing.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        What is the maximum file size?
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            The current maximum file size is 50 MB. This limit exists to ensure reliable in-memory processing. For larger files, consider splitting them into smaller parts before encryption.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        Can I use ShardSafe for team-based access control?
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Absolutely. Distribute key shares to team members. For example, with N=5 and K=3, give each of 5 team members one share. At least 3 members must collaborate to decrypt the file, preventing any single person from accessing sensitive data alone.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button">
+                        Is ShardSafe open source?
+                        <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Yes. ShardSafe is fully open source and available on <a href="https://github.com/kavya-mj-glitch/shamir_secret" target="_blank" rel="noopener" style="color:var(--green-accent)">GitHub</a>. You can inspect the code, report issues, or contribute improvements.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const wasOpen = item.classList.contains('open');
+
+            // Close all others
+            document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+
+            // Toggle current
+            if (!wasOpen) item.classList.add('open');
+        });
+    });
+});
+</script>
+{% endblock %}
