@@ -994,3 +994,41 @@ input, select, textarea { font-family: inherit; }
     .page-header h1 { font-size: 1.8rem; }
     .form-card { padding: 20px; }
 }
+
+/* -- Tabbed App Interface -------------------------------------- */
+.app-section {
+    padding: 40px 0 100px;
+}
+.app-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+.app-tab-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #a1a1aa;
+    padding: 12px 32px;
+    border-radius: var(--radius-pill);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.app-tab-btn:hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.3);
+}
+.app-tab-btn.active {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+.app-tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease forwards;
+}
+.app-tab-content.active {
+    display: block;
+}
