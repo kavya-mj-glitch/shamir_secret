@@ -62,9 +62,9 @@ def recover_key(encoded_shares: List[str]) -> bytes:
             for share in encoded_shares
         ]
 
-        secret_int = shamirs.recover(
+        secret_int = shamirs.interpolate(
             share_objects,
-            modulus=YOUR_PRIME,
+            threshold=len(share_objects)
         )
 
         # Check that the recovered integer fits in 32 bytes
