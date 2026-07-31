@@ -1,10 +1,12 @@
-# ShardSafe 🛡️
+# ShardSafe 🛡️ (100% Client-Side Version)
 
-ShardSafe is a military-grade file encryption tool featuring a zero-knowledge architecture and **Shamir's Secret Sharing**. It allows you to securely encrypt files and distribute the decryption keys across multiple "shares," eliminating the need to remember complex passwords while eliminating single points of failure.
+ShardSafe is a military-grade file encryption tool featuring a zero-knowledge architecture and **Shamir's Secret Sharing**. This specific branch is a **100% Client-Side** rewrite, meaning all encryption and decryption happens directly in your browser.
+
+🎉 **[Try the Live Demo Here!](https://kavya-mj-glitch.github.io/shamir_secret/)** 🎉
 
 ![ShardSafe Frontend](https://img.shields.io/badge/UI-Glassmorphism-6366f1?style=flat-square)
-![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square)
-![Flask](https://img.shields.io/badge/Flask-Backend-green?style=flat-square)
+![JavaScript](https://img.shields.io/badge/Logic-Vanilla%20JS-yellow?style=flat-square)
+![Zero Knowledge](https://img.shields.io/badge/Security-Zero%20Knowledge-success?style=flat-square)
 ![Encryption](https://img.shields.io/badge/Encryption-AES--256--GCM-red?style=flat-square)
 
 ## ✨ Key Features
@@ -18,33 +20,24 @@ ShardSafe is a military-grade file encryption tool featuring a zero-knowledge ar
 
 ## 🚀 Getting Started
 
-### Prerequisites
-- Python 3.9 or higher
-- pip (Python package installer)
+Since this is the static, client-side version of ShardSafe, you can try it instantly without downloading anything:
 
-### Installation
+👉 **[Launch Live Demo](https://kavya-mj-glitch.github.io/shamir_secret/)**
+
+### Local Development (Optional)
+
+If you'd like to run it locally, no backend server is needed. Simply serve the files statically:
 
 1. **Clone the repository**
    ```bash
    git clone git@github.com:kavya-mj-glitch/shamir_secret.git
    cd shamir_secret
-   git checkout shardsafe-v2
+   git checkout gh-pages-demo
    ```
 
-2. **Create a virtual environment**
+2. **Run a static server**
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Run the Application**
-   ```bash
-   python app.py
+   python3 -m http.server 8080
    ```
    The application will be available at [http://localhost:8080](http://localhost:8080).
 
