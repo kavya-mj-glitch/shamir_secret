@@ -282,7 +282,8 @@ input, select, textarea { font-family: inherit; }
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 60% 60% at 50% 30%, transparent, #000000 80%);
+    /* Soften the fade so the grid is faintly visible everywhere */
+    background: radial-gradient(ellipse 80% 80% at 50% 0%, transparent, rgba(0,0,0,0.85) 100%);
 }
 
 /* ── Page Wrapper ───────────────────────────────────────────── */
@@ -432,7 +433,7 @@ input, select, textarea { font-family: inherit; }
 
 /* ── Hero Section ───────────────────────────────────────────── */
 .hero {
-    padding: 120px 0 60px;
+    padding: 120px 0 0px;
     text-align: center;
     position: relative;
 }
@@ -517,7 +518,7 @@ input, select, textarea { font-family: inherit; }
 }
 
 .hero-image {
-    margin-top: 80px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     animation: fadeInUp 0.8s ease 0.4s both;
@@ -527,19 +528,6 @@ input, select, textarea { font-family: inherit; }
 .hero-image img {
     max-width: 500px;
     width: 100%;
-}
-
-.hero-scroll-arrow {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    color: rgba(255,255,255,0.4);
-    animation: bounce 2s infinite ease-in-out;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
 }
 
 /* ── Buttons ────────────────────────────────────────────────── */
@@ -648,9 +636,14 @@ input, select, textarea { font-family: inherit; }
     margin: 0 auto;
 }
 
+/* ── Tabbed App Interface ────────────────────────────────────── */
+.app-section {
+    padding: 0 0 20px;
+}
+
 /* ── Section Titles ─────────────────────────────────────────── */
 .section {
-    padding: 80px 0;
+    padding: 30px 0;
 }
 
 .section-label {
