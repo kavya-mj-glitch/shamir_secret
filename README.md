@@ -2,6 +2,8 @@
 
 ShardSafe is a military-grade file encryption tool featuring a zero-knowledge architecture and **Shamir's Secret Sharing**. It allows you to securely encrypt files and distribute the decryption keys across multiple "shares," eliminating the need to remember complex passwords while eliminating single points of failure.
 
+🎉 **[Try the Live Demo Here!](https://kavya-mj-glitch.github.io/shamir_secret/)** *(100% Client-Side Version)* 🎉
+
 ![ShardSafe Frontend](https://img.shields.io/badge/UI-Glassmorphism-6366f1?style=flat-square)
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?style=flat-square)
 ![Flask](https://img.shields.io/badge/Flask-Backend-green?style=flat-square)
