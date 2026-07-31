@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Features{% endblock %}
+{% block meta_desc %}Explore ShardSafe's security features including AES-256 encryption, Shamir Secret Sharing, threshold recovery, and more.{% endblock %}
+
+{% block content %}
+<main>
+    <section class="page-header">
+        <div class="container">
+            <div class="section-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Capabilities
+            </div>
+            <h1>Built for Security</h1>
+            <p>Everything you need to protect your files with military-grade cryptography and distributed trust.</p>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+        <div class="container">
+            <div class="features-grid">
+                <!-- AES-256 Encryption -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>AES-256 Encryption</h3>
+                    <p>Files are encrypted using AES-256-GCM, the same standard used by governments and militaries worldwide. Authenticated encryption ensures both confidentiality and integrity.</p>
+                </div>
+
+                <!-- Shamir Secret Sharing -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    </div>
+                    <h3>Shamir Secret Sharing</h3>
+                    <p>Encryption keys are split into multiple shares using Shamir's mathematical algorithm. No single share reveals any information about the key.</p>
+                </div>
+
+                <!-- Threshold Recovery -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                    </div>
+                    <h3>Threshold Recovery</h3>
+                    <p>Configure how many shares are needed to reconstruct the key. Lose some shares? As long as you have the threshold, your data is recoverable.</p>
+                </div>
+
+                <!-- Secure File Processing -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h3>Secure File Processing</h3>
+                    <p>All encryption operations happen in-memory. Files, keys, and plaintext are never written to disk, maintaining a zero-knowledge architecture.</p>
+                </div>
+
+                <!-- Cross Platform -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    </div>
+                    <h3>Cross Platform</h3>
+                    <p>Access ShardSafe from any modern browser on any device. Built as a responsive web application with no platform-specific dependencies.</p>
+                </div>
+
+                <!-- Open Source -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h3>Open Source</h3>
+                    <p>Fully open source and auditable. Inspect the code, contribute improvements, or fork it for your own use. Transparency builds trust.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
